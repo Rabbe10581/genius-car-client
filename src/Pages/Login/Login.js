@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../assets/images/login/login.svg'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
@@ -25,7 +26,7 @@ const Login = () => {
                 console.log(currentUser);
 
                 //get jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://genius-car-server-ashy-alpha.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -76,6 +77,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='text-center'>New to Genius Car? <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link></p>
+                    <SocialLogin></SocialLogin>
                 </div>
             </div>
         </div>
